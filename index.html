@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Amateur Vampire Hunter</title>
+	<style type="text/css">
+		.invisible {
+			display: none;
+		}
+		* {
+			font-size: 18px;
+			text-align: center;
+			text-transform: uppercase;
+		}
+	</style>
+</head>
+<body onload = "game.setup()">
+
+	<p id='prompt'></p>
+	<br/>
+	<form onsubmit='game.submit(); return false;'>
+		<input id='player_input'></input>
+	</form>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
+	<script src="game.js" type="text/javascript"></script>
+	<script src="questions.js" type="text/javascript"></script>
+</body>
+</html>
