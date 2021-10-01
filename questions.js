@@ -2,28 +2,37 @@ var questions =
 [
 	{
 		id: 0,
-		prompt_text: 
-			"welcome to" + "<br/>" +
-			"amateur vampire hunter" + "<br/>" +
-			"a game by chris 'turd boomerang' armstrong" + "<br/>" +
-			"what is your name?",
-		submit_function: function(submitted_value)
-		{
-			if (submitted_value.length > 0)
-			{
-				game.player_name = submitted_value;
-				questions[1].prompt_text = `welcome, ${game.player_name}`;
-			}
-			return true;
-		}
+		get_prompt_text: function()
+		{ 
+			return "<p>Welcome to:</p>" +
+			"<p>Amateur Vampire Hunter</p>" +
+			"<p>a game by Chris 'Turd Boomerang' Armstrong</p>";
+		},
+		options:
+		[
+			{option_text: "Begin",
+			option_submit: function() {return true;}},
+			{option_text: "Don't begin",
+			option_submit: function() {return false;}}
+		]
 	},
 	{
 		id: 1,
-		prompt_text: 
-			`welcome, ${game.player_name}`,
-		submit_function: function()
-		{
-			return false;
-		}
+		prompt_text: "",
+		get_prompt_text: function()
+		{ 
+			return "<p>Welcome.</p>" +
+				"<p>The following series of questions will guide you " + 
+				"through a mock vampire hunt, and your answers will " +
+				"be used to gauge your ability to hunt down Count Dracula, " +
+				"leader of the vampires.</p>";
+		},
+		options:
+		[
+			{option_text: "Okay.",
+			option_submit: function() {return false;}},
+			{option_text: "Oh, Hell yeah! I'm gonna hunt you one day, Count Dracula!",
+			option_submit: function() {return false;}}
+		]
 	}
 ];
